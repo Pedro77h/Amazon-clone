@@ -34,7 +34,7 @@ export const Header = () => {
 
       <S.CheckoutLink href="/checkout">
         <S.Basket>
-          <ShoppingCartOutlinedIcon />
+          <ShoppingCartOutlinedIcon fill="white" />
           <S.BasketCounter>0</S.BasketCounter>
         </S.Basket>
       </S.CheckoutLink>

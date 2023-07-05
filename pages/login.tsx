@@ -1,5 +1,18 @@
 import React from "react";
+import { Container, Main } from "../styles/sharedStyles";
+import { LoginContainer } from "../styles/loginStyles";
+import { LoginForm } from "../components/LoginForm";
 
-export const Login = () => {
-  return <div>Login</div>;
+const Login = () => {
+  return (
+    <Container>
+      <Main>
+        <LoginContainer>
+          <LoginForm />
+        </LoginContainer>
+      </Main>
+    </Container>
+  );
 };
+
+export default Login;
