@@ -2,6 +2,8 @@ import type { AppProps } from "next/app";
 import { ThemeProvider, DefaultTheme } from "styled-components";
 import GlobalStyle from "../styles/globalstyles";
 import { Header } from "../components/Header";
+import { Provider } from "react-redux";
+import { store } from "../lib/store";
 
 const theme: DefaultTheme = {
   colors: {
@@ -16,11 +18,13 @@ const theme: DefaultTheme = {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Header />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 }
