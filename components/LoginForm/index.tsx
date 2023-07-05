@@ -6,20 +6,30 @@ import {
 } from "firebase/auth";
 import { auth } from "../../lib/firebase";
 import { useRouter } from "next/router";
+import { useAppDispatch } from "../../lib/store/hooks";
+import { signIn } from "../../lib/store/reducers/user.reducer";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
 
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
 
   const loginUser = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      
+      const userCredentials = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      dispatch(signIn(userCredentials.user));
+
       router.push("/");
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 

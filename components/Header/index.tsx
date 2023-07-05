@@ -5,8 +5,24 @@ import { SearchBox } from "./SearchBox";
 
 import * as S from "./styles";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useSelector } from "react-redux";
+import { selectUser, signOut } from "../../lib/store/reducers/user.reducer";
+import { useAppDispatch } from "../../lib/store/hooks";
+import { useRouter } from "next/router";
 
 export const Header = () => {
+  const user = useSelector(selectUser);
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const handleSignIn = () => {
+    if (user !== null) {
+      dispatch(signOut());
+    } else {
+      router.push("/login");
+    }
+  };
+
   return (
     <S.Nav>
       <Link href="/">
@@ -22,8 +38,10 @@ export const Header = () => {
 
       <S.SignInLink>
         <S.Option>
-          <S.OptionTopLine>Hello</S.OptionTopLine>
-          <S.OptionBottomLine>Sign in</S.OptionBottomLine>
+          <S.OptionTopLine>Hello {user?.email} </S.OptionTopLine>
+          <S.OptionBottomLine onClick={handleSignIn}>
+            {user !== null ? "Sign Out" : "Sign In"}
+          </S.OptionBottomLine>
         </S.Option>
       </S.SignInLink>
 

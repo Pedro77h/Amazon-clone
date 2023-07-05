@@ -17,13 +17,13 @@ export const userSlice = createSlice({
     signIn: (state, action: PayloadAction<FirebaseUser>) => {
       state.user = action.payload;
     },
-    singOut: (state) => {
+    signOut: (state) => {
       state.user = null;
     },
   },
 });
 
-export const { signIn, singOut } = userSlice.actions;
+export const { signIn, signOut } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user.user
 
