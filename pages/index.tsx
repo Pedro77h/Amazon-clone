@@ -1,7 +1,16 @@
 import { Product } from "../components/Product";
+import useProducts from "../hooks/useProducts";
 import * as S from "../styles/homeStyles";
 
 export default function Home() {
+  const { data, error, loading } = useProducts();
+
+  console.log(data);
+
+  if (loading) return <p>Loading</p>;
+
+  if (error) return <p>error</p>;
+
   return (
     <S.HomeContainer>
       <S.BackgroundImg
@@ -9,13 +18,16 @@ export default function Home() {
         alt="Amazon Background"
       />
       <S.ProductRows>
-        <Product
-          id="1234"
-          image="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_1280.jpg"
-          price={19.19}
-          rating={3}
-          title="Flor muito massa"
-        />
+        {!!data &&
+          data.products.map((product) => (
+            <Product
+              id={product.id}
+              image={product.images[0].url}
+              price={product.price}
+              rating={4}
+              title={product.name}
+            />
+          ))}
       </S.ProductRows>
     </S.HomeContainer>
   );
