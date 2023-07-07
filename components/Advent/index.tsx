@@ -13,11 +13,11 @@ export const Advert = () => {
         style={{
           backgroundColor: "#EBF8FA",
           color: "#111",
-          padding: "8px",
+          padding: "0.5rem",
           border: "1px solid black",
         }}
       >
-        <span style={{ margin: "0px 0px 14px" }}>
+        <span style={{ margin: "0px 0px 0.9rem" }}>
           <strong>Buy 2 Echo Dot (3rd Gen) for £29.98</strong> when you add 2
           units to basket and apply the <strong> promo code 2ECHODOT3</strong>{" "}
           at check-out. <u>Terms apply</u>

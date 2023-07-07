@@ -17,7 +17,7 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  margin: 24px 0 16px;
+  margin: 1.5rem 0 1rem;
   line-height: 1.15;
   font-size: 1.4rem;
   font-weight: 500;
@@ -44,10 +44,10 @@ const Description = styled.p`
 const AmazonButton = styled.button`
   background: #ffd814;
   border-color: #fcd200;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   font-size: 0.8rem;
-  padding: 10px;
+  padding: 0.7rem;
   cursor: pointer;
 `;
 

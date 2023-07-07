@@ -19,5 +19,5 @@ export const PriceContainer = styled.div`
 `;
 
 export const Pence = styled.small`
-  margin-bottom: 7px;
+  margin-bottom: 0.5rem;
 `;

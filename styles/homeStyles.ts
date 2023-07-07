@@ -9,7 +9,7 @@ const ProductRows = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: .7rem;
+  gap: 0.7rem;
   z-index: 1;
   margin: 0 auto;
 `;
@@ -19,7 +19,7 @@ const BackgroundImg = styled.img`
   object-fit: contain;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   margin-bottom: -20%;
-  z-index: -1;
+  z-index: -99999;
 `;
 
 export { HomeContainer, ProductRows, BackgroundImg };
