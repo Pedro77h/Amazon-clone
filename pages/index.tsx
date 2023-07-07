@@ -1,3 +1,4 @@
+import { IProduct } from "../@types/IProduct";
 import { Product } from "../components/Product";
 import useProducts from "../hooks/useProducts";
 import * as S from "../styles/homeStyles";
@@ -5,7 +6,6 @@ import * as S from "../styles/homeStyles";
 export default function Home() {
   const { data, error, loading } = useProducts();
 
-  console.log(data);
 
   if (loading) return <p>Loading</p>;
 
@@ -19,7 +19,7 @@ export default function Home() {
       />
       <S.ProductRows>
         {!!data &&
-          data.products.map((product) => (
+          data.products.map((product: IProduct) => (
             <Product
               id={product.id}
               image={product.images[0].url}

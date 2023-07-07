@@ -1,9 +1,10 @@
 import { Title } from "../../styles/sharedStyles";
+import { AddProductBasketButton } from "../AddProductBasketButton";
 import { Price } from "../Price";
 import { Rating } from "../Rating";
 import * as S from "./styles";
 
-interface ProductProps {
+export interface ProductProps {
   id: string;
   title: string;
   image: string;
@@ -11,13 +12,7 @@ interface ProductProps {
   rating: number;
 }
 
-export const Product = ({
-  id,
-  image,
-  price,
-  rating,
-  title,
-}: ProductProps) => {
+export const Product = ({ id, image, price, rating, title }: ProductProps) => {
   return (
     <S.ProductContainer>
       <img src={image} alt={title} />
@@ -26,6 +21,14 @@ export const Product = ({
         <Price itemPrice={price} />
         <Rating ratingNumber={rating} />
       </S.Info>
+
+      <AddProductBasketButton
+        id={id}
+        image={image}
+        price={price}
+        rating={rating}
+        title={title}
+      />
     </S.ProductContainer>
   );
 };

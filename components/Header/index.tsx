@@ -9,11 +9,14 @@ import { useSelector } from "react-redux";
 import { selectUser, signOut } from "../../lib/store/reducers/user.reducer";
 import { useAppDispatch } from "../../lib/store/hooks";
 import { useRouter } from "next/router";
+import { selectCartItemsCount } from "../../lib/store/reducers/cart.reducer";
 
 export const Header = () => {
-  const user = useSelector(selectUser);
   const dispatch = useAppDispatch();
   const router = useRouter();
+
+  const user = useSelector(selectUser);
+  const basketCount = useSelector(selectCartItemsCount);
 
   const handleSignIn = () => {
     if (user !== null) {
@@ -53,7 +56,7 @@ export const Header = () => {
       <S.CheckoutLink href="/checkout">
         <S.Basket>
           <ShoppingCartOutlinedIcon fill="white" />
-          <S.BasketCounter>0</S.BasketCounter>
+          <S.BasketCounter>{basketCount}</S.BasketCounter>
         </S.Basket>
       </S.CheckoutLink>
     </S.Nav>

@@ -29,7 +29,7 @@ export const LoginForm = () => {
 
       router.push("/");
     } catch (err) {
-      console.log(err.message);
+      alert(err.message);
     }
   };
 
@@ -39,7 +39,7 @@ export const LoginForm = () => {
 
       router.push("/");
     } catch (err) {
-      alert(err);
+      alert(err.message);
     }
   };
 
